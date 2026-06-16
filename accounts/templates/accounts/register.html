@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#4f46e5,#06b6d4);
+            padding:20px;
+        }
+
+        .container{
+            width:100%;
+            max-width:450px;
+        }
+
+        .card{
+            background:white;
+            padding:35px;
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .title{
+            text-align:center;
+            margin-bottom:10px;
+            color:#333;
+        }
+
+        .subtitle{
+            text-align:center;
+            color:#666;
+            margin-bottom:25px;
+            font-size:14px;
+        }
+
+        .form-group{
+            margin-bottom:18px;
+        }
+
+        .form-group label{
+            display:block;
+            margin-bottom:8px;
+            color:#444;
+            font-weight:600;
+        }
+
+        .form-group input{
+            width:100%;
+            padding:12px;
+            border:1px solid #d1d5db;
+            border-radius:8px;
+            font-size:15px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        .form-group input:focus{
+            border-color:#4f46e5;
+            box-shadow:0 0 5px rgba(79,70,229,0.3);
+        }
+
+        .btn{
+            width:100%;
+            padding:13px;
+            border:none;
+            border-radius:8px;
+            background:#4f46e5;
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#3730a3;
+        }
+
+        .footer{
+            text-align:center;
+            margin-top:20px;
+            color:#555;
+        }
+
+        .footer a{
+            color:#4f46e5;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .footer a:hover{
+            text-decoration:underline;
+        }
+
+        @media(max-width:500px){
+
+            .card{
+                padding:25px;
+            }
+
+            .title{
+                font-size:28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1 class="title">Create Account</h1>
+
+            <p class="subtitle">
+                Register to access your account
+            </p>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label>Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter password"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input
+                        type="password"
+                        name="confirm_password"
+                        placeholder="Confirm password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn">
+                    Register
+                </button>
+
+            </form>
+
+            <div class="footer">
+                Already have an account?
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+

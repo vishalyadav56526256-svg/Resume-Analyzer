@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Resume Analyzer</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f7ff;
+    color:#333;
+}
+
+/* Navbar */
+
+nav{
+    background:linear-gradient(135deg,#4f46e5,#06b6d4);
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+}
+
+.auth-btns a{
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:8px;
+    margin-left:10px;
+}
+
+.login{
+    background:white;
+    color:#4f46e5;
+}
+
+.register{
+    background:#1e293b;
+    color:white;
+}
+
+/* Hero */
+
+.hero{
+    min-height:80vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:60px 8%;
+    gap:40px;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.hero-content h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:18px;
+    margin-bottom:25px;
+    color:#555;
+}
+
+.btn{
+    padding:14px 28px;
+    border:none;
+    border-radius:8px;
+    text-decoration:none;
+    display:inline-block;
+    margin-right:10px;
+}
+
+.primary{
+    background:#4f46e5;
+    color:white;
+}
+
+.secondary{
+    background:#06b6d4;
+    color:white;
+}
+
+.hero-image{
+    flex:1;
+    text-align:center;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:500px;
+}
+
+/* Sections */
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:40px;
+}
+
+/* Features */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* How it works */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.step{
+    background:white;
+    text-align:center;
+    padding:25px;
+    border-radius:15px;
+}
+
+/* Stats */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.stat{
+    background:linear-gradient(135deg,#4f46e5,#06b6d4);
+    color:white;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+}
+
+/* Testimonials */
+
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+/* CTA */
+
+.cta{
+    background:linear-gradient(135deg,#4f46e5,#06b6d4);
+    color:white;
+    text-align:center;
+    border-radius:20px;
+}
+
+/* Footer */
+
+footer{
+    background:#111827;
+    color:white;
+    padding:50px 8%;
+    margin-top:50px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+footer a{
+    color:#ddd;
+    text-decoration:none;
+    display:block;
+    margin-top:10px;
+}
+
+@media(max-width:768px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-content h1{
+        font-size:38px;
+    }
+
+    .steps,
+    .stats,
+    .testimonials,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        display:none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">AI Resume Analyzer</div>
+
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="auth-btns">
+        <a href="{% url 'login' %}" class="login">Login</a>
+        <a href="{% url 'register' %}" class="register">Register</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Optimize Your Resume with AI</h1>
+
+        <p>
+            Upload your resume and get ATS score,
+            skill analysis, keyword suggestions,
+            and improvement recommendations instantly.
+        </p>
+
+        <a href="#" class="btn primary">Upload Resume</a>
+        <a href="{% url 'login' %}" class="btn secondary">Get Started</a>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://via.placeholder.com/500x350"
+             alt="Resume Analyzer">
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Features</h2>
+
+    <div class="features">
+        <div class="card">ATS Score Analysis</div>
+        <div class="card">Skill Gap Detection</div>
+        <div class="card">Resume Suggestions</div>
+        <div class="card">Keyword Optimization</div>
+        <div class="card">Job Match Analysis</div>
+        <div class="card">Download Report</div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">How It Works</h2>
+
+    <div class="steps">
+        <div class="step">Upload Resume</div>
+        <div class="step">AI Analysis</div>
+        <div class="step">ATS Score</div>
+        <div class="step">Download Report</div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Statistics</h2>
+
+    <div class="stats">
+        <div class="stat">
+            <h2>10,000+</h2>
+            <p>Resumes</p>
+        </div>
+
+        <div class="stat">
+            <h2>5,000+</h2>
+            <p>Users</p>
+        </div>
+
+        <div class="stat">
+            <h2>95%</h2>
+            <p>Accuracy</p>
+        </div>
+
+        <div class="stat">
+            <h2>24/7</h2>
+            <p>Availability</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Testimonials</h2>
+
+    <div class="testimonials">
+        <div class="card">
+            Great ATS analysis and suggestions.
+        </div>
+
+        <div class="card">
+            Helped me improve my resume quickly.
+        </div>
+
+        <div class="card">
+            Excellent tool for job seekers.
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Ready to Improve Your Resume?</h2>
+    <br>
+    <a href="#" class="btn primary">Upload Resume</a>
+</section>
+
+<footer>
+    <div class="footer-grid">
+
+        <div>
+            <h3>About</h3>
+            <p>AI-powered Resume Analyzer.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+        </div>
+
+        <div>
+            <h3>Contact</h3>
+            <p>support@example.com</p>
+        </div>
+
+        <div>
+            <h3>Social</h3>
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
