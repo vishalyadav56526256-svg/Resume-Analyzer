@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Resume</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Segoe UI, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#0f172a,#1e293b);
+        }
+
+        .container{
+            width:90%;
+            max-width:500px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 15px 40px rgba(0,0,0,0.25);
+            text-align:center;
+        }
+
+        .logo{
+            font-size:45px;
+            margin-bottom:10px;
+        }
+
+        h1{
+            color:#0f172a;
+            margin-bottom:10px;
+        }
+
+        p{
+            color:#64748b;
+            margin-bottom:30px;
+        }
+
+        .upload-box{
+            border:2px dashed #3b82f6;
+            border-radius:15px;
+            padding:30px;
+            margin-bottom:20px;
+            background:#f8fafc;
+        }
+
+        .upload-box input{
+            width:100%;
+        }
+
+        button{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:10px;
+            background:#2563eb;
+            color:white;
+            font-size:16px;
+            font-weight:600;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:#1d4ed8;
+        }
+
+        .info{
+            margin-top:20px;
+            font-size:14px;
+            color:#64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="logo">📄</div>
+
+        <h1>AI Resume Analyzer</h1>
+
+        <p>Upload your resume and get instant AI-powered analysis.</p>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="upload-box">
+                <input type="file" name="resume_file" required>
+            </div>
+
+            <button type="submit">
+                Upload Resume
+            </button>
+        </form>
+
+        <div class="info">
+            Supported formats: PDF, DOC, DOCX
+        </div>
+
+    </div>
+
+</body>
+</html>
+

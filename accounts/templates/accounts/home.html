@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -110,11 +111,13 @@ nav{
 .hero-image{
     flex:1;
     text-align:center;
+    
 }
 
 .hero-image img{
-    width:100%;
+    width:70%;
     max-width:500px;
+    border-radius:100%;
 }
 
 /* Sections */
@@ -251,10 +254,10 @@ footer a{
     <div class="logo">AI Resume Analyzer</div>
 
     <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Features</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'features' %}">Features</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
     </div>
 
     <div class="auth-btns">
@@ -273,12 +276,12 @@ footer a{
             and improvement recommendations instantly.
         </p>
 
-        <a href="#" class="btn primary">Upload Resume</a>
+        <a href="{% url 'upload_resume' %}" class="btn primary">Upload Resume</a>
         <a href="{% url 'login' %}" class="btn secondary">Get Started</a>
     </div>
 
     <div class="hero-image">
-        <img src="https://via.placeholder.com/500x350"
+        <img src="{% static 'image/resumeimage.jpg' %}"
              alt="Resume Analyzer">
     </div>
 </section>
@@ -354,7 +357,7 @@ footer a{
 <section class="cta">
     <h2>Ready to Improve Your Resume?</h2>
     <br>
-    <a href="#" class="btn primary">Upload Resume</a>
+    <a href="{% url 'upload_resume' %}" class="btn primary">Upload Resume</a>
 </section>
 
 <footer>
@@ -367,19 +370,19 @@ footer a{
 
         <div>
             <h3>Quick Links</h3>
-            <a href="#">Home</a>
-            <a href="#">Features</a>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'features' %}">Features</a>
         </div>
 
         <div>
             <h3>Contact</h3>
-            <p>support@example.com</p>
+            <p>vishalyadav565262@gmail.com</p>
         </div>
 
         <div>
             <h3>Social</h3>
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
+            <a href="https://www.linkedin.com/in/vishalyadav565262/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/vishalyadav565262" target="_blank">GitHub</a>
         </div>
 
     </div>

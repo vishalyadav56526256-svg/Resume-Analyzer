@@ -50,3 +50,12 @@ def logout_view(request):
 
 def home(request):
     return render(request, 'accounts/home.html')
+
+def features(request):
+    return render(request, 'accounts/features.html')
+
+def about(request):
+    return render(request, 'accounts/about.html')
+
+def contact(request):
+    return render(request, 'accounts/contact.html')
