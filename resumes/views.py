@@ -9,5 +9,5 @@ def upload_resume(request):
                 user=request.user,
                 resume_file=resume_file
             )
-        return redirect('upload_resume')
+        return redirect('analyze_resume', resume_id=Resume.objects.last().id)
     return render(request, 'resumes/upload.html')

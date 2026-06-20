@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Analysis</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:30px;
+}
+
+.score-box{
+    text-align:center;
+    background:#2563eb;
+    color:white;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:30px;
+}
+
+.score-box h2{
+    font-size:40px;
+    margin-top:10px;
+}
+
+.card{
+    background:#f8fafc;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    border-left:5px solid #2563eb;
+}
+
+.card h3{
+    color:#1e293b;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Resume Analysis Report</h1>
+
+    <div class="score-box">
+        <h3>Resume Score</h3>
+        <h2>{{ analysis.score }}%</h2>
+    </div>
+
+    <div class="card">
+        <h3>Extracted Skills</h3>
+        <p>{{ analysis.skills }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Missing Skills</h3>
+        <p>{{ analysis.missing_skills }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Suggestions</h3>
+        <p>{{ analysis.suggestions }}</p>
+    </div>
+
+</div>
+
+</body>
+</html>
