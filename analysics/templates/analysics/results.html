@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -100,6 +100,160 @@ h1{
     </div>
 
 </div>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analysis</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
+            padding:30px;
+        }
+
+        .container{
+            width:100%;
+            max-width:850px;
+            background:white;
+            border-radius:20px;
+            padding:40px;
+            box-shadow:0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align:center;
+            color:#2563eb;
+            margin-bottom:30px;
+            font-size:38px;
+        }
+
+        .score-box{
+            text-align:center;
+            background:#eff6ff;
+            padding:25px;
+            border-radius:15px;
+            margin-bottom:25px;
+        }
+
+        .score-box h2{
+            color:#1d4ed8;
+            font-size:32px;
+        }
+
+        .section{
+            margin-bottom:25px;
+            padding:20px;
+            border-radius:12px;
+            background:#f8fafc;
+            border-left:5px solid #2563eb;
+        }
+
+        .section h3{
+            color:#1e293b;
+            margin-bottom:10px;
+            font-size:22px;
+        }
+
+        .section p{
+            color:#475569;
+            line-height:1.8;
+            font-size:16px;
+        }
+
+        .skills{
+            border-left-color:#10b981;
+        }
+
+        .missing{
+            border-left-color:#ef4444;
+        }
+
+        .suggestions{
+            border-left-color:#f59e0b;
+        }
+
+        .btn{
+            display:block;
+            width:220px;
+            text-align:center;
+            margin:30px auto 0;
+            text-decoration:none;
+            background:#2563eb;
+            color:white;
+            padding:14px 25px;
+            border-radius:10px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#1d4ed8;
+            transform:translateY(-2px);
+        }
+
+        @media(max-width:768px){
+
+            .container{
+                padding:25px;
+            }
+
+            h1{
+                font-size:30px;
+            }
+
+            .score-box h2{
+                font-size:26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>📄 Resume Analysis Report</h1>
+
+        <div class="score-box">
+            <h2>Score: {{ analysis.score }}%</h2>
+        </div>
+
+        <div class="section skills">
+            <h3>✅ Skills Found</h3>
+            <p>{{ analysis.skills }}</p>
+        </div>
+
+        <div class="section missing">
+            <h3>❌ Missing Skills</h3>
+            <p>{{ analysis.missing_skills }}</p>
+        </div>
+
+        <div class="section suggestions">
+            <h3>💡 Suggestions</h3>
+            <p>{{ analysis.suggestions }}</p>
+        </div>
+
+        <a href="/accounts/" class="btn">
+            Back To Home
+        </a>
+
+    </div>
 
 </body>
 </html>
